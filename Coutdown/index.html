@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Compte à Rebours</title>
+</head>
+
+<body>
+    <div id="halo"></div>
+    <div id="particle-container"></div>
+    <h1>Compte a Rebours</h1>
+
+    <!-- Formulaire pour entrer la date et heure -->
+    <form id="countdownForm">
+        <div class="form-group">
+            <label for="targetDate">Date et heure cible :</label>
+            <input type="text" id="targetDate" placeholder="2000-01-01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="displayOption">Afficher en :</label>
+            <div class="custom-select" id="customSelect">
+                <div class="selected-option">Choisissez une option</div>
+                <div class="options">
+                    <div data-value="full" class="option">jj-mm-aaaa hh:mm:ss</div>
+                    <div data-value="years" class="option">Années</div>
+                    <div data-value="months" class="option">Mois</div>
+                    <div data-value="days" class="option">Jours</div>
+                    <div data-value="hours" class="option">Heures</div>
+                    <div data-value="minutes" class="option">Minutes</div>
+                    <div data-value="seconds" class="option">Secondes</div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" id="displayOptionHidden" />
+    </form>
+
+    <!-- Bouton Lancer le compte à rebours, placé à la fin et centré -->
+    <div class="button-container">
+        <button type="submit" form="countdownForm" class="launch-button">Lancer le compte à rebours</button>
+        <button type="button" class="launch-button" id="shareButton">Partage-le !</button>
+    </div>
+    
+    <!-- Zone d'affichage du compte à rebours -->
+    <div id="countdownDisplay">
+        <span class="number" id="days"></span>
+        <span class="unit"></span>
+        <span class="number" id="hours"></span>
+        <span class="unit"></span>
+        <span class="number" id="minutes"></span>
+        <span class="unit"></span>
+        <span class="number" id="seconds"></span>
+        <span class="unit"></span>
+    </div>
+
+    <!-- Lien vers le fichier JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

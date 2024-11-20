@@ -1,0 +1,342 @@
+@font-face {
+  font-family: Moderniz;
+  src: url(./fonts/moderniz/Moderniz.otf);
+}
+
+html, body {
+  overflow: hidden;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #050505;
+  color: #e5f1fc;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#halo {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 40vh; /* Taille du halo */
+  height: 40vh; /* Taille du halo */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.6) 10%,
+    transparent 90%
+  );
+  filter: blur(105px);
+  border-radius: 50%;
+  pointer-events: none; /* Empêche l'interaction avec le halo */
+  animation: moveAndPulse 30s ease-in-out infinite; /* Animation du halo */
+}
+
+@keyframes moveAndPulse {
+  0% {
+    top: 10%;
+    left: 10%;
+    width: 40vh;
+    height: 40vh;
+    opacity: 0.7;
+  }
+  30% {
+    top: 30%;
+    left: 70%;
+    width: 45vh;
+    height: 45vh;
+    opacity: 1;
+  }
+  50% {
+    top: 80%;
+    left: 80%;
+    width: 40vh;
+    height: 40vh;
+    opacity: 0.8;
+  }
+  65% {
+    top: 60%;
+    left: 65%;
+    width: 50vh;
+    height: 50vh;
+    opacity: 1;
+  }
+  75% {
+    top: 55%;
+    left: 50%;
+    width: 45vh;
+    height: 45vh;
+    opacity: 0.7;
+  }
+  85% {
+    top: 40%;
+    left: 20%;
+    width: 50vh;
+    height: 50vh;
+    opacity: 0.5;
+  }
+  100% {
+    top: 10%;
+    left: 10%;
+    width: 40vh;
+    height: 40vh;
+    opacity: 0.7; 
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 0.2vh;
+  height: 0.2vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: floatParticle 10s linear infinite;
+}
+
+@keyframes floatParticleA {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) translateX(100px);
+    opacity: 0.2;
+  }
+}
+
+@keyframes floatParticleB {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-150px) translateX(150px);
+    opacity: 0.2;
+  }
+}
+
+#halo, #particle-container {
+  overflow: hidden;
+}
+
+h1 {
+  font-family: Moderniz, sans-serif;
+  font-size: 4em;
+  margin: 1em;
+}
+
+#countdownForm {
+  margin-top: 4em;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+label {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+input {
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+#targetDate {
+  width: 9em; /* Ajuster la largeur */
+  border: 2px solid #e5f1fc;
+  background-color: #050505; /* Fond en accord avec le thème */
+  color: #e5f1fc;
+  font-size: 1.2em;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+#targetDate:hover:active {
+  outline: none;
+  border-color: #e5f1fc; /* Changer la couleur de bordure lors du focus */
+  box-shadow: 0 0 10px #e5f1fc; /* Accentuer l'effet d'ombre lors du focus */
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 14em;
+  background-color: transparent;
+  color: #e5f1fc;
+  padding: 10px;
+  border: solid 2px #e5f1fc; /* Remplace la bordure par une ombre */
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.custom-select:hover {
+  box-shadow: 0 0 10px #e5f1fc; /* Accentuer l'effet d'ombre lors du focus */
+}
+
+.options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #050505;
+  box-shadow: 0 0 0 2px #e5f1fc;
+  width: -webkit-fill-available;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.option:hover {
+  color: #050505;
+  background-color: #e5f1fc;
+}
+
+.custom-select.open .options {
+  display: block;
+}
+
+.launch-button {
+  font-size: 1.2em;
+  padding: 15px 30px;
+  background-color: #050505;
+  color: #e5f1fc;
+  border: solid 2px #e5f1fc;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.launch-button:hover {
+  background-color: #e5f1fc;
+  color: #050505;
+  border: solid 2px #050505;
+}
+
+#countdownDisplay {
+  position: relative;
+  margin: 0 auto;
+  font-family: Moderniz, sans-serif;
+  font-size: 10vh;
+  text-align: center;
+  top: 1em;
+  text-shadow: none;
+}
+
+@keyframes fade {
+  0% {
+    text-shadow: 0 0 0.3em #e5f1fc91;
+  }
+}
+
+#countdownDisplay.animate {
+  animation: fade 1s ease-in-out;
+}
+
+/* Media Queries pour rendre le site responsive */
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9em;
+    margin-top: 20px;
+  }
+
+  #halo {
+    width: 150px;  /* Réduction de la taille du halo */
+    height: 150px;
+    filter: blur(50px);  /* Réduction de l'effet de flou */
+  }
+
+  .particle {
+    width: 2px;  /* Particules plus petites pour les écrans mobiles */
+    height: 2px;
+    animation-duration: 8s;  /* Animation plus rapide */
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  label {
+    text-align: left;
+    flex-basis: auto;
+  }
+
+  input[type="datetime-local"],
+  .custom-select {
+    width: 80%;
+    max-width: none;
+  }
+
+  .launch-button {
+    width: 80%;
+    padding: 10px;
+    font-size: 1em;
+  }
+
+  #countdownDisplay {
+    top: 15vh;
+    font-size: 2.2em;
+  }
+}
+
+/* Tablette (481px à 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 1em;
+    margin-top: 30px;
+  }
+
+  #halo {
+    width: 200px;  /* Taille ajustée pour tablettes */
+    height: 200px;
+    filter: blur(75px);  /* Ajustement du flou */
+  }
+
+  .particle {
+    width: 3px;  /* Particules un peu plus petites */
+    height: 3px;
+    animation-duration: 9s;  /* Animation légèrement plus rapide */
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  input[type="datetime-local"],
+  .custom-select {
+    width: 90%;
+  }
+
+  .launch-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+  }
+
+  #countdownDisplay {
+    top: 15vh;
+    font-size: 3em;
+  }
+}
